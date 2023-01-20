@@ -8,7 +8,7 @@ steps:
 - name: test
   image: node
   commands:
-    - echo foo
+    - yarn build
 trigger:
     branch:
       - main
