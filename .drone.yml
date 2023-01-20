@@ -9,6 +9,7 @@ steps:
   image: node:16
   commands:
     - ls
+    - env
     - yarn install
     - yarn build
 trigger:
