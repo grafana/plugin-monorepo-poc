@@ -8,7 +8,7 @@ steps:
 - name: test
   image: node
   commands:
-    - yarn install turbo
+    - yarn add turbo
     - yarn build
 trigger:
     branch:
