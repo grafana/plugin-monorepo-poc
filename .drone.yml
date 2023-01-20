@@ -8,6 +8,7 @@ steps:
 - name: test
   image: node:16
   commands:
+    - ls
     - yarn install
     - yarn build
 trigger:
