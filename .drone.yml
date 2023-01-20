@@ -1,0 +1,19 @@
+---
+kind: pipeline
+name: foo
+platform:
+  arch: amd64
+  os: linux
+steps:
+- name: test
+  image: node
+  commands:
+    - echo foo
+trigger:
+    branch:
+      - main
+    event:
+      - pull_request
+    paths:
+        include: 
+          - plugins/foo-datasource
