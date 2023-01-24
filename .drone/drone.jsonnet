@@ -5,12 +5,10 @@ local images = {
   jsonnet_build: 'grafana/jsonnet-build:c8b75df',
 };
 
-local step(name, commands, image=images.golang, volumes=[], depends_on=[]) = {
+local step(name, commands=[], image=images.golang) = {
   name: name,
   commands: commands,
   image: image,
-  volumes: volumes,
-  depends_on: depends_on,
 };
 
 local pipeline(name, steps=[]) = {
@@ -28,12 +26,11 @@ local pipeline(name, steps=[]) = {
 };
 
 [
-  pipeline('build',     
-
-  step(
-      'build',
-      ['yarn install', 'yarn build'],
-      image=images.node
-    )
-  )
+  pipeline('build', [
+    step(
+        'build',
+        ['yarn install', 'yarn build'],
+        images.node
+      )
+  ])
 ]
